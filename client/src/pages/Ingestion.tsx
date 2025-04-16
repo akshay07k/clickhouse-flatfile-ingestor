@@ -288,7 +288,7 @@ const Ingestion: React.FC = () => {
                   onFail={() =>
                     dispatch({ type: 'ADD_STATUS', payload: { type: 'error', message: `Ingestion failed` } })
                   }
-                  stats={{ processed: 1000, failed: 0 }}
+                  stats={{ processed: 10, failed: 0 }}
                 />
                 <StatusDisplay messages={state.statusMessages} />
               </div>

@@ -1,0 +1,5 @@
+Prompts were designed by using the following best practices:
+- Clear and specific instructions
+- Breaking down complex tasks into subtasks
+- Asking AI to think through edge cases
+- Requesting test cases and validation
