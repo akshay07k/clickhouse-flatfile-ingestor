@@ -1,4 +1,4 @@
-id,username,email
-1,John Doe,john@example.com
-2,Jane Smith,jane@example.com
-3,Akshay Kumar,akshay@me.com
+id,joined_date,name
+1,2023-01-15,john Doe
+2,2022-11-08,Jane
+3,2024-04-01,Akshay Kumar

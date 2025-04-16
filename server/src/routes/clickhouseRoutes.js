@@ -1,22 +1,26 @@
 import { Router } from 'express';
-import { 
-    getTables, 
-    getTableSchema, 
-    exportTableToCSV, 
-    exportSelectedColumnsToCSV, 
-    exportJoinResult, 
-    previewTable
+import {
+  connect,
+  getTables,
+  getTableSchema,
+  previewTable,
+  exportTableToCSV,
+  exportJoinResult
 } from '../controllers/clickhouseController.js';
-import authenticate from '../middlewares/auth.js';
+import { attachClickHouse } from '../middlewares/attachClickHouse.js';
 
 const router = Router();
 
-router.get('/tables', authenticate, getTables);
-router.get('/tables/:table', authenticate, getTableSchema);
-router.get('/tables/:table/preview', authenticate, previewTable);
-router.get('/tables/:table/export', authenticate, exportTableToCSV);
-router.get('/tables/:table/export/columns', authenticate, exportSelectedColumnsToCSV);
-router.post('/join/export', authenticate, exportJoinResult);
+// Connection endpoint
+router.post('/connect-clickhouse', connect);
 
+// For all subsequent ClickHouse operations, attach the dynamic connection from session.
+router.use(attachClickHouse);
+
+router.get('/tables', getTables);
+router.get('/tables/:table', getTableSchema);
+router.get('/tables/:table/preview', previewTable);
+router.get('/tables/:table/export', exportTableToCSV);
+router.post('/join/export', exportJoinResult);
 
 export default router;

@@ -1,3 +1,3 @@
-id,name,email
-1,John Doe,john@example.com
-2,Jane Smith,jane@example.com
+id,name,users.id,users.name,email,created_at
+1,John Doe,1,John Doe,john@example.com,2025-04-16 06:18:22
+2,Jane Smith,2,Jane Smith,jane@example.com,2025-04-16 06:18:22
